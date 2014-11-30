@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20141128235714) do
   create_table "artists", force: true do |t|
     t.string   "mbid"
     t.string   "name"
+    t.string   "search_image_url"
     t.boolean  "review_flag"
     t.integer  "music_rating"
     t.integer  "atmosphere_rating"
@@ -49,8 +50,8 @@ ActiveRecord::Schema.define(version: 20141128235714) do
   end
 
   create_table "reviews", force: true do |t|
-    t.integer  "user_id_id"
-    t.integer  "artist_id_id"
+    t.integer  "user_id"
+    t.integer  "artist_id"
     t.string   "venue"
     t.string   "content"
     t.integer  "ticket_price"

@@ -28,6 +28,7 @@ gem 'spring',        group: :development
 
 # Last.fm gem
 gem 'rockstar', '~> 0.8.0'
+gem 'lastfm'
 
 # .env gem
 gem 'dotenv', '~> 1.0.2'
@@ -42,5 +43,5 @@ gem 'dotenv', '~> 1.0.2'
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
 
