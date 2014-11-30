@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require ../../../vendor/assets/javascripts/bootstrap
+//= require ../../../vendor/assets/javascripts/handlebars-v2.0.0
