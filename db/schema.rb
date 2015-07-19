@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129224243) do
+ActiveRecord::Schema.define(version: 20141128235714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20141129224243) do
   create_table "artists", force: true do |t|
     t.string   "mbid"
     t.string   "name"
+    t.string   "search_image_url"
     t.boolean  "review_flag"
     t.integer  "music_rating"
     t.integer  "atmosphere_rating"
@@ -42,15 +43,6 @@ ActiveRecord::Schema.define(version: 20141129224243) do
     t.datetime "updated_at"
   end
 
-  create_table "events", force: true do |t|
-    t.string   "venue"
-    t.string   "artist"
-    t.string   "date"
-    t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "genres", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -58,8 +50,8 @@ ActiveRecord::Schema.define(version: 20141129224243) do
   end
 
   create_table "reviews", force: true do |t|
-    t.integer  "user_id_id"
-    t.integer  "artist_id_id"
+    t.integer  "user_id"
+    t.integer  "artist_id"
     t.string   "venue"
     t.string   "content"
     t.integer  "ticket_price"
@@ -75,14 +67,13 @@ ActiveRecord::Schema.define(version: 20141129224243) do
   end
 
   create_table "users", force: true do |t|
+    t.string   "username"
+    t.string   "zipcode"
+    t.string   "current_location"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "name"
     t.string   "image"
-    t.string   "zipcode"
-    t.string   "current_location"
-    t.float    "latitude"
-    t.float    "longitude"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -93,8 +84,6 @@ ActiveRecord::Schema.define(version: 20141129224243) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "provider"
-    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
